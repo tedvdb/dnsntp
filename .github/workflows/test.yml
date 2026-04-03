@@ -11,9 +11,9 @@ permissions:
 jobs:
   cargo-test:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 1
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Install Rust stable
         uses: dtolnay/rust-toolchain@stable
