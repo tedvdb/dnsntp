@@ -1,10 +1,13 @@
 #
 name: Create and publish a Docker image
 
-# Configures this workflow to run every time a change is pushed to the branch called `release`.
+# Runs only on version tags: vMAJOR.MINOR.PATCH (digits) or the same with a prerelease suffix.
+# Does not run for v1, v1.2, or loose tags like vfoo — see filter pattern cheat sheet in GitHub docs.
 on:
   push:
-    branches: ['release']
+    tags:
+      - 'v[0-9]*.[0-9]*.[0-9]*'
+      - 'v[0-9]*.[0-9]*.[0-9]*-*'
 
 # Defines two custom environment variables for the workflow. These are used for the Container registry domain, and a name for the Docker image that this workflow builds.
 env:
