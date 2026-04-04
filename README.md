@@ -75,6 +75,19 @@ Examples use **`time.tedtec.nl`**. With the compose mapping above, **`dig`** can
 ### TXT (success)
 
 ```bash
+~ $ nslookup -q=TXT localhost time.tedtec.nl
+Server:         time.tedtec.nl
+Address:        193.27.86.26#53
+
+localhost       text = "1775291142"
+localhost       text = "1775291142882"
+localhost       text = "2026-04-04T08:25:42.882Z"
+
+~ $
+```
+
+Or with `dig`:
+```bash
 dig TXT tedtec.nl @time.tedtec.nl
 ```
 
