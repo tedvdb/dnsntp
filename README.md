@@ -70,12 +70,12 @@ docker compose up -d
 
 ## Querying the public host
 
-Examples use **`dnsntp.tedtec.nl`**. With the compose mapping above, **`dig`** can use **port 53** (default). If the server only exposes **53535**, add **`-p 53535`** to `dig`.
+Examples use **`time.tedtec.nl`**. With the compose mapping above, **`dig`** can use **port 53** (default). If the server only exposes **53535**, add **`-p 53535`** to `dig`.
 
 ### TXT (success)
 
 ```bash
-dig TXT dnsntp.tedtec.nl @dnsntp.tedtec.nl
+dig TXT tedtec.nl @time.tedtec.nl
 ```
 
 You should see **`status: NOERROR`**, **`ANSWER: 3`**, and three TXT strings: seconds, milliseconds, and an RFC 3339 timestamp.
@@ -83,8 +83,8 @@ You should see **`status: NOERROR`**, **`ANSWER: 3`**, and three TXT strings: se
 ### Non-TXT (refused)
 
 ```bash
-dig A dnsntp.tedtec.nl @dnsntp.tedtec.nl
-dig AAAA dnsntp.tedtec.nl @dnsntp.tedtec.nl
+dig A tedtec.nl @time.tedtec.nl
+dig AAAA tedtec.nl @time.tedtec.nl
 ```
 
 You should see **`status: REFUSED`** and no usable answer records for the requested type.
@@ -92,7 +92,7 @@ You should see **`status: REFUSED`** and no usable answer records for the reques
 ### Short output
 
 ```bash
-dig +short TXT dnsntp.tedtec.nl @dnsntp.tedtec.nl
+dig +short TXT doesnt.matter @time.tedtec.nl
 ```
 
 ## Library
